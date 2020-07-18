@@ -6,7 +6,8 @@ export const theme = {
         fontPrimary: '#fcba03',
     },
     fonts: {
-        primary: 'Arial Black'
+        primary: 'Arial Black',
+        secondary: 'Arial, Helvetica, sans-serif',
     }
 }
 export default theme

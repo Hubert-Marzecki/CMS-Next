@@ -2,7 +2,7 @@ import {Global, css} from '@emotion/core'
 
 const GlobalStyles = () => [
     <>
-    <Global styles ={css`
+    <Global  styles ={css`
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -330,10 +330,16 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
-
+/* BACGROUND ADDED  */
+body, html{
+    background-image: url("https://picsum.photos/id/1/200/300");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+    
     `}>
-
-    </Global>
+</Global>
     </>
 ]
 

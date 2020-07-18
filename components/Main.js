@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-
+import React from 'react';
+import Button from './ButtonCta'
 export default function Main() {
     
     return (
@@ -7,7 +8,7 @@ export default function Main() {
         <div className="container">
           <img className='logo-img' src='https://holofan3d.pl/wp-content/uploads/2020/06/Holofan_Horizontal_ColorWhite_RGB.png' />
           <h3 className="caption"> WYRÓŻNIJ SIE Z TŁUMU </h3>
-          <button className="cta"> ZADZWOŃ </button>
+          <Button title={"ZADZWOŃ"} isBig/>
         </div>
       </StyledMain>
     )
@@ -38,15 +39,5 @@ export default function Main() {
     font-size: 60px;
     margin-bottom: 40px;
   }
-  .cta {
-    background-color: transparent;
-    color: ${props => props.theme.colors.fontPrimary};
-    border-color:  ${props => props.theme.colors.fontPrimary};
-    border-radius: 5px ;
-    border-width: 2px;
-    padding: 10px 15px;
-    font-size: 30px;
-    font-family: ${props => props.theme.fonts.primary};
-  }
-  
+ 
   `
