@@ -331,12 +331,12 @@ textarea {
     padding: 0.2em 0;
 }
 /* BACGROUND ADDED  */
-body, html{
-    background-image: url("https://picsum.photos/id/1/200/300");
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-}
+//body, html{
+//    background-image: url("https://picsum.photos/id/1/200/300");
+//    background-position: center;
+//    background-size: cover;
+//    background-attachment: fixed;
+//}
     
     `}>
 </Global>

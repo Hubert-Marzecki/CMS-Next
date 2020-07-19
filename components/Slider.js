@@ -64,7 +64,7 @@ return (
 }
 
 const StyledSection = styled.section`
-background-color: ${props => props.theme.colors.primary};
+//background-color: ${props => props.theme.colors.primary};
 position: relative;
 color: white;
 height: 500px;
@@ -72,7 +72,7 @@ height: 500px;
 const StyledArrow = styled.span`
 position: absolute;
 top:50%;
-left: ${props => props.left ? "5%" : "95%"};
+left: ${props => props.left ? "15%" : "85%"};
 transform: translate(-50%, -50%);
 `
 const SlideStyled = styled.div`

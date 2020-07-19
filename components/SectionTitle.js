@@ -11,7 +11,7 @@ export default function SectionTitle({title}) {
     )
   }
   const StyledTitle = styled.div`
-    background-color: ${props => props.theme.colors.primary};
+    // background-color: ${props => props.theme.colors.primary};
     font-family: ${props => props.theme.fonts.primary};
     font-size: 3em;
     color: white;

@@ -15,7 +15,7 @@ export default function Main() {
   }
   const StyledMain = styled.div`
   height: 93vh;
-  background-image: url('https://images.pexels.com/photos/1044990/pexels-photo-1044990.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  //background-image: url('https://images.pexels.com/photos/1044990/pexels-photo-1044990.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   background-position: center;
   background-size: cover;
 
