@@ -6,10 +6,11 @@ import SectionTitle from '../components/SectionTitle';
 import styled from '@emotion/styled';
 import {IconGallery} from "../components/IconGallery";
 import ImageGallery from "../components/ImageGallery";
+import ProductsGalleryOne from "../components/ProductsGalleryOne";
 
 const URL =  'http://localhost:1337'
 
-export const  Home = ({sliders, icons, images})  => {
+export const  Home = ({sliders, icons, images, holofans})  => {
 
   return (
       <StyledWindow>
@@ -19,6 +20,8 @@ export const  Home = ({sliders, icons, images})  => {
       <IconGallery icons={icons}/>
       <SectionTitle title={"JEDEN PRODUKT - WIELE ZASTOSOWAŃ"}/>
       <ImageGallery images={images} />
+      <SectionTitle title={"NASZE PRODUKTY"}/>
+      <ProductsGalleryOne products={holofans} />
       </StyledWindow>
   )
 }
@@ -27,18 +30,20 @@ export async function getServerSideProps(){
   const { API_URL } = process.env;
   const res = await (await fetch(`${URL}/sliders`))
   const data = await res.json();
-
   const resIcon = await (await fetch (`${URL}/icons`));
   const iconData = await resIcon.json();
-
     const resImg = await (await fetch (`${URL}/image-galleries`));
     const imgData = await resImg.json();
+    const resProd = await (await fetch (`${URL}/products`));
+    const prodData = await resProd.json();
 
     return {
       props: {
         sliders: data,
         icons: iconData,
-        images: imgData
+        images: imgData,
+          holofans: prodData,
+
 
       }
     }

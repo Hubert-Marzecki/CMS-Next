@@ -1,29 +1,28 @@
 import React from 'react'
 import styled from '@emotion/styled';
 
-export function ImageGallery({images}) {
+export function ImageGallery({products: holofans}) {
     const URL =  'http://localhost:1337'
 
-    console.log(images)
+    console.log(holofans)
     return (
-    <>
-        <StyledGallery>
-            {images.map(image => {
-                return (
-                    <div>
-                        <img src={URL + image.img.formats.thumbnail.url} />
-                        <h3>
-                            {image.title}
-                        </h3>
-                        <p>
-                            {image.info}
-                        </p>
-                    </div>
-                )
-            })}
-        </StyledGallery>
+        <>
+            <StyledGallery>
+                {holofans.map(prod => {
+                    return (
+                        <>
+                        <div className="img">
+                            <h3> {prod.prodName}</h3>
+                            <img src={URL + prod.img.formats.thumbnail.url} />
+                            <p>{prod.desc}</p>
+                        </div>
 
-    </>
+                        </>
+                    )
+                })}
+            </StyledGallery>
+
+        </>
     )
 }
 const StyledGallery = styled.div`
@@ -38,23 +37,24 @@ const StyledGallery = styled.div`
       div{
       width: 25vw;
       }
+   
       img{
-      width: 100%;
+      width: 70%;
       display: block;
       margin: 0 auto;
       }
       h3{
       margin-top: 20px;
-      color: ${props => props.theme.colors.fontPrimary};
-      font-size: 20px;
+      color: white;
+      font-size: 25px;
       text-align: center;
       font-family: ${props => props.theme.fonts.primary};
       }
       p{
-      margin-top: 20px;
-        width: 100%;
+        width: 60%;
         color: white;
-      text-align: justify;
+      text-align: center;
+      margin: 20px auto;
       font-family: ${props => props.theme.fonts.secondary};
       line-height: 1.3em;
       }

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled';
 
 export function IconGallery({icons}) {
-    console.log(icons[0].title)
     const URL =  'http://localhost:1337'
 
     return (
@@ -25,17 +24,20 @@ const StyledGallery = styled.div`
       margin-top: 50px;
       margin-bottom: 100px;
       display: grid;
-      grid-column-gap: 100px;
+      grid-column-gap: 200px;
       grid-row-gap: 100px;
       grid-template-columns: auto auto auto;
       justify-content: center;
+      
+      div{
+      width: 15vw;
+      }
       img{
-      text-align: center;
       display: block;
       margin: 0 auto;
       }
       h3{
-      color:white;
+        color: white;
       font-size: 20px;
       text-align: center;
       font-family: ${props => props.theme.fonts.primary};
