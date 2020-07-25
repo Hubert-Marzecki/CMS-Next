@@ -17,4 +17,5 @@ export default function SectionTitle({title}) {
     color: white;
     text-align: center;
     padding: 50px;
+    margin-top: 150px;
   `

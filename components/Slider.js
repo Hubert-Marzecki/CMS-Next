@@ -40,7 +40,7 @@ return (
               return (
                   <SlideStyled key={item.id}>
                       <div className="img__holder">
-                      <img className="img__holo" src={ URL + item.img.formats.medium.url} alt=""/> 
+                      <img className="img__holo" src={ URL + item.img.formats.thumbnail.url} alt=""/>
                       </div>
                     <div className="info__holder">
                         <h3 className="holo__title"> {item.title} </h3>
@@ -80,7 +80,7 @@ display: flex;
 justify-content: center;
 img{
     /* height: 500px; */
-    max-width: 400px;
+    width: 300px;
     margin-top: 100px;
     margin-right: 50px;
 }

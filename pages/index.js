@@ -7,21 +7,32 @@ import styled from '@emotion/styled';
 import {IconGallery} from "../components/IconGallery";
 import ImageGallery from "../components/ImageGallery";
 import ProductsGalleryOne from "../components/ProductsGalleryOne";
+import AccesoriesGallery from "../components/AccesoriesGallery";
+import Services from "../components/Services";
+import {Contact} from "../components/Contact";
 
 const URL =  'http://localhost:1337'
 
-export const  Home = ({sliders, icons, images, holofans})  => {
+export const  Home = ({sliders, icons, images, holofans, accesories, services, contacts})  => {
 
   return (
       <StyledWindow>
       <Main/>
       <SectionTitle title={"POZNAJ HOLOFAN"}/>
-      <Slider sliders={sliders} API={URL}/>
+      <Slider sliders={sliders.slice(0,3)} API={URL}/>
       <IconGallery icons={icons}/>
       <SectionTitle title={"JEDEN PRODUKT - WIELE ZASTOSOWAŃ"}/>
       <ImageGallery images={images} />
       <SectionTitle title={"NASZE PRODUKTY"}/>
       <ProductsGalleryOne products={holofans} />
+      <SectionTitle title={"AKCESORIA"}/>
+      <AccesoriesGallery products={accesories.slice(0,3)} />
+      <SectionTitle title={"POZNAJ HOLOGOBO"}/>
+      <Slider sliders={sliders.slice(3,6)} API={URL}/>
+      <SectionTitle title={"WSPARCIE"}/>
+      <Services services={services} />
+      <SectionTitle title={"KONTAKT"}/>
+      <Contact contacts={contacts} />
       </StyledWindow>
   )
 }
@@ -36,6 +47,12 @@ export async function getServerSideProps(){
     const imgData = await resImg.json();
     const resProd = await (await fetch (`${URL}/products`));
     const prodData = await resProd.json();
+    const resAcce = await (await fetch (`${URL}/accesories`));
+    const accesoriedData = await resAcce.json();
+    const resServices = await (await fetch(`${URL}/services`))
+    const servicesData = await resServices.json();
+    const resContacts = await (await  fetch(`${URL}/contacts`));
+    const contactsData = await resContacts.json();
 
     return {
       props: {
@@ -43,6 +60,9 @@ export async function getServerSideProps(){
         icons: iconData,
         images: imgData,
           holofans: prodData,
+          accesories: accesoriedData,
+          services:servicesData,
+          contacts:contactsData,
 
 
       }

@@ -1,38 +1,23 @@
 import React from 'react'
 import styled from '@emotion/styled';
 
-export function ImageGallery({products: holofans}) {
+export function AccesoriesGallery({products: accesories}) {
     const URL =  'http://localhost:1337'
 
-
-    function toNewLine(elem ,a) {
-        const firstLine = elem.indexOf("cm") +2;
-        const secLine = elem.indexOf("px") +2 ;
-        const thirdLine = elem.indexOf("kg") + 2;
-
-       return(
-           <>
-               <p> {elem.slice(0, firstLine)} </p>
-               <p> {elem.slice(firstLine, secLine)} </p>
-               <p> {elem.slice(secLine, thirdLine)} </p>
-               <p> {elem.slice(thirdLine, elem.length)} </p>
-               </>
-       )
-    }
 
 
 
     return (
         <>
             <StyledGallery>
-                {holofans.map(prod => {
+                {accesories.map(prod => {
                     return (
                         <>
-                        <div className="img">
-                            <h3> {prod.prodName}</h3>
-                            <img src={URL + prod.img.formats.thumbnail.url} />
-                            <p>{toNewLine(prod.desc, 0 )}</p>
-                        </div>
+                            <div className="img">
+                                <h3> {prod.title}</h3>
+                                <p> {prod.info }</p>
+                                <img src={URL + prod.img.formats.thumbnail.url} />
+                            </div>
 
                         </>
                     )
@@ -56,14 +41,13 @@ const StyledGallery = styled.div`
       }
    
       img{
-      width: 50%;
+      width: 70%;
       display: block;
       margin: 0 auto;
       }
-      
       h3{
       margin-top: 20px;
-      color: white;
+      color: ${props => props.theme.colors.fontPrimary};
       font-size: 25px;
       text-align: center;
       font-family: ${props => props.theme.fonts.primary};
@@ -71,11 +55,9 @@ const StyledGallery = styled.div`
       p{
         width: 80%;
         color: white;
-        font-weight: 800;
-      text-align: center;
       margin: 20px auto;
       font-family: ${props => props.theme.fonts.secondary};
       line-height: 1.3em;
       }
 `
-export  default ImageGallery;
+export  default AccesoriesGallery;
