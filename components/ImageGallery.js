@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled';
+import { useSpring, animated } from 'react-spring'
 
 export function ImageGallery({images}) {
     const URL =  'http://localhost:1337'
+    const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.05]
+    const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+
+    const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
 
     console.log(images)
     return (
@@ -11,7 +16,11 @@ export function ImageGallery({images}) {
             {images.map(image => {
                 return (
                     <div>
-                        <img src={URL + image.img.formats.thumbnail.url} />
+                        <animated.img src={URL + image.img.formats.thumbnail.url}
+                                      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+                                      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                                      // style={{ transform: props.xys.interpolate(trans) }}
+                        />
                         <h3>
                             {image.title}
                         </h3>
@@ -35,8 +44,20 @@ const StyledGallery = styled.div`
       justify-content: center;
       padding-bottom: 50px;
       
+      @media(max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      }
+      
       div{
-      width: 25vw;
+      width: 20vw;
+       @media(max-width: 600px) {
+       width: 80%;
+       display: block;
+       margin: 0 auto;
+       
+       }
       }
       img{
       width: 100%;

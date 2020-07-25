@@ -337,8 +337,26 @@ textarea {
 //    background-size: cover;
 //    background-attachment: fixed;
 //}
-    
-    `}>
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url("http://localhost:1337/uploads/background1_min_613c957a29.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}    
+
+`}
+
+
+    >
 </Global>
     </>
 ]

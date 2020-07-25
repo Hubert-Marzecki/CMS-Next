@@ -1,26 +1,35 @@
 import React from 'react'
 import styled from '@emotion/styled';
+import {setConfig} from "next/config";
 
 export function ImageGallery({products: holofans}) {
     const URL =  'http://localhost:1337'
 
+function colored(sentence) {
+    const colored = sentence.slice(0, sentence.indexOf(":") +2)
+    return (
+        <>
+        <StyledSpan className="colored">{colored}</StyledSpan>
+        <span> {sentence.slice(sentence.indexOf(":"), sentence.length)} </span>
+            </>
+    )
+}
 
     function toNewLine(elem ,a) {
         const firstLine = elem.indexOf("cm") +2;
         const secLine = elem.indexOf("px") +2 ;
         const thirdLine = elem.indexOf("kg") + 2;
-
+        const lastElement = elem.lastIndexOf('W') +1;
        return(
            <>
-               <p> {elem.slice(0, firstLine)} </p>
-               <p> {elem.slice(firstLine, secLine)} </p>
-               <p> {elem.slice(secLine, thirdLine)} </p>
-               <p> {elem.slice(thirdLine, elem.length)} </p>
+               <p> {colored(elem.slice(0, firstLine))} </p>
+               <p> {colored(elem.slice(firstLine, secLine))} </p>
+               <p> {colored(elem.slice(secLine, thirdLine))} </p>
+               <p> {colored(elem.slice(thirdLine, lastElement))} </p>
+               <p> {colored(elem.slice(lastElement, elem.length))} </p>
                </>
        )
     }
-
-
 
     return (
         <>
@@ -42,6 +51,12 @@ export function ImageGallery({products: holofans}) {
         </>
     )
 }
+
+const StyledSpan = styled.span`
+ color: ${props => props.theme.colors.fontPrimary}
+`
+
+
 const StyledGallery = styled.div`
       margin-top: 50px;
       display: grid;
@@ -51,8 +66,19 @@ const StyledGallery = styled.div`
       justify-content: center;
       padding-bottom: 50px;
       
+      @media(max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      }
+      
       div{
       width: 25vw;
+        @media(max-width: 600px) {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        }
+      
       }
    
       img{
@@ -76,6 +102,10 @@ const StyledGallery = styled.div`
       margin: 20px auto;
       font-family: ${props => props.theme.fonts.secondary};
       line-height: 1.3em;
+      
+      .span{
+       color: red
+      }
       }
 `
 export  default ImageGallery;

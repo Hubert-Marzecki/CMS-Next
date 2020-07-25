@@ -35,9 +35,17 @@ const StyledGallery = styled.div`
       grid-template-columns: auto auto auto;
       justify-content: center;
       padding-bottom: 50px;
-      
+        @media(max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      }
       div{
       width: 25vw;
+         @media(max-width: 600px) {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        }
       }
    
       img{

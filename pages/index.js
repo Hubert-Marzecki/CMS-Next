@@ -70,10 +70,11 @@ export async function getServerSideProps(){
 }
 
 const StyledWindow = styled.div`
-background-image: url("http://localhost:1337/uploads/background1_min_613c957a29.png");
-background-position: center;
-background-size: cover;
-background-attachment: fixed;
+
+//background-image: url("http://localhost:1337/uploads/background1_min_613c957a29.png");
+//background-position: center;
+//background-size: cover;
+//background-attachment: fixed;
 `
 
 export default Home;

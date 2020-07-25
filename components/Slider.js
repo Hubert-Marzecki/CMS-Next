@@ -7,11 +7,9 @@ import next from 'next';
 
 
 export const  Slider = ({sliders, API: URL})  => {
-const [start, setStart] = useState(0)
+const [start, setStart] = useState(0);
 const SLIDES = 1;
 
-
-console.log(sliders.length);
 const moveSlide = (direction) => {
     
     switch (direction) {
@@ -19,7 +17,7 @@ const moveSlide = (direction) => {
         if (start + SLIDES >= sliders.length) {
             setStart(0)
         } else {
-            setStart(start + SLIDES)
+            setStart(start + SLIDES);
         }
         break;
         case 'BACK':
@@ -53,14 +51,16 @@ return (
         
   
           <StyledArrow left onClick={() => moveSlide("BACK")}>
-              ARROW
+              <img className="arrow-b"  src={'https://image.flaticon.com/icons/svg/1635/1635634.svg'}/>
           </StyledArrow>
           <StyledArrow right onClick={() => moveSlide("NEXT")}>
-              ARROW
+              <img className="arrow"  src={'https://image.flaticon.com/icons/svg/1635/1635634.svg'}/>
           </StyledArrow>
           </StyledSection>
         </>
     )
+
+
 }
 
 const StyledSection = styled.section`
@@ -68,30 +68,59 @@ const StyledSection = styled.section`
 position: relative;
 color: white;
 height: 500px;
+@media(max-width: 600px) {
+height: 1000px;
+}
+.arrow-b{
+transform: rotate(180deg);
+}
 `
 const StyledArrow = styled.span`
 position: absolute;
-top:50%;
+top:40%;
 left: ${props => props.left ? "15%" : "85%"};
 transform: translate(-50%, -50%);
+cursor: pointer;
+img{
+height: 20px;
+}
 `
+
+
 const SlideStyled = styled.div`
 display: flex;
 justify-content: center;
+
+@media(max-width: 600px) {
+flex-direction: column;
+}
+
 img{
     /* height: 500px; */
     width: 300px;
     margin-top: 100px;
     margin-right: 50px;
+    @media(max-width: 600px) {
+    display: block;
+    margin: 50px auto;
+}
 }
 .info__holder{
     width:30vw;
+         @media(max-width: 600px) {
+         width: 90%;
+         display: block;
+         margin: 0 auto;
+      }
 }
 .holo__title{
     margin-bottom: 50px;
     margin-top: 50px;
     font-size: 40px;
     font-family: ${props => props.theme.fonts.primary};
+      @media(max-width: 600px) {
+      }
+      }
 }
 .holo__desc{
     margin-bottom: 50px;

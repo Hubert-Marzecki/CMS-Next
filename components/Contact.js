@@ -37,6 +37,7 @@ color: white;
       text-align: center;
       font-weight: 100;
       font-family: ${props => props.theme.fonts.secondary};
+     
 `
 
 const StyledGallery = styled.div`
@@ -47,9 +48,17 @@ const StyledGallery = styled.div`
       grid-template-columns: auto auto auto;
       justify-content: center;
       padding-bottom: 200px;
-      
+         @media(max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      }
       div{
       width: 25vw;
+        @media(max-width: 600px) {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        }
       }
    
       img{

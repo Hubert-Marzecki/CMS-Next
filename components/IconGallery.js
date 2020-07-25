@@ -21,6 +21,12 @@ export function IconGallery({icons}) {
 }
 
 const StyledGallery = styled.div`
+@media(max-width: 600px) {
+      margin-top: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+}
       margin-top: 50px;
       margin-bottom: 100px;
       display: grid;
@@ -31,6 +37,12 @@ const StyledGallery = styled.div`
       
       div{
       width: 15vw;
+      @media(max-width: 600px) {
+        width: 80vw;
+      margin: 0 auto;
+      display: block;
+      }
+    
       }
       img{
       display: block;
